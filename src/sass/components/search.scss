@@ -1,0 +1,433 @@
+.search {
+  width: 100%;
+  display: inline-block;
+  &-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    &__type{
+      display: flex;
+      a {
+        max-width: 188px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        position: relative;
+        border-bottom: 1px solid rgb(216, 216, 216);
+        color: #929292;
+        font-size: 11px;
+        font-weight: 400;
+        text-decoration: none;
+        text-transform: uppercase;
+        span {
+          font-size: 21px;
+        }
+        &.active {
+          span {
+            color: #cc2929;
+          }
+        }
+      }
+      &--car {
+        padding: 0 44px 16px 54px;
+        &:before {
+          content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/car_icon_gray.svg?v=904');
+          width: 40px;
+          height: 17px;
+          position: absolute;
+          bottom: 14px;
+          left: 0;
+        }
+        &.active {
+          &:before {
+            content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/car_icon_red.svg?v=904');
+          }
+        }
+      }
+      &--bike {
+        padding: 0px 23px 16px 41px;
+        &:before {
+          content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/bike_icon_gray.svg?v=904');
+          width: 27px;
+          height: 22px;
+          position: absolute;
+          bottom: 13px;
+          left: 0;
+        }
+        &.active {
+          &:before {
+            content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/bike_icon_red.svg?v=904');
+          }
+        }
+      }
+    }
+    &__sell {
+      width: 200px;
+      height: 40px;
+      display: flex;
+      a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border: 2px solid #f89e00;
+        border-radius: 3px;
+        color: #f89e00;
+        font-size: 15px;
+        font-weight: bold;
+        transition: all .25s ease-out;
+        &:hover {
+          transition: all .25s ease-in;
+          background-color: #f89e00;
+          color: #FFF;
+        }
+      }
+    }
+  }
+  form {
+    width: 100%;
+    display: inline-block;
+    padding: 31.5px 56px;
+    background-color: #FFF;
+    box-shadow: rgba(174, 174, 181, 0.2) 1px 1px 1px;
+  }
+  &-form {
+    width: 100%;
+    display: inline-block;
+    &__left,
+    &__right{
+      width: 49%;
+      margin-top: 15px;
+    }
+    &__where {
+      width: 100%;
+      display: flex;
+      position: relative;
+      input {
+        width: 70%;
+        height: 39px;
+        display: inline-block;
+        padding: 0 0 0 80px;
+        border: 1px solid #ccc;
+        border-radius: 3px 0 0 3px;
+        color: #4d4d4d;
+        font-weight: 700;
+        font-size: 15px;
+        outline: none;
+        &:focus {
+          border: 1px solid #CCC;
+        }
+      }
+      label {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 12px;
+        font-size: 14px;
+        color: #808080;
+        &:before {
+          content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/pin_icon.svg?v=904');
+          width: 15px;
+          height: 22px;
+          display: inline-block;
+          margin-right: 12px;
+        }
+      }
+      .select-lightning {
+        width: 30%;
+        display: inline-block;
+        position: relative;
+        p {
+          height: 39px;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 8px;
+          color: #aaaab1;
+          font-size: 14px;
+        }
+        input {
+        	width: 40px !important;
+   	 			border: 0;
+    			margin-left: 41px;
+          padding: 0;
+        }
+        .Select-control {
+          height: 39px;
+          border-radius: 0 3px 3px 0;
+          border-left: 0;
+          border-color: #CCC;
+        }
+        .Select-placeholder,
+        .Select-input,
+        .Select-value{
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+        .Select-placeholder {
+          padding-left: 43px;
+          font-size: 14px;
+          font-weight: 700;
+          padding-top: 2px;
+        }
+        #react-select-2--value-item {
+          padding: 0 0 0 42px;
+          font-size: 14px;
+          font-weight: 700;
+          position: relative;
+          top: 2px;
+        }
+        .Select-clear {
+          position: relative;
+          top: 1px;
+          right: 3px;
+        }
+        .Select-arrow {
+          border-color: #4d4d4d transparent transparent;
+        }
+      }
+    }
+    &__yearPrice {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+    &__year,
+    &__price {
+      width: 48%;
+      height: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      color: #808080;
+      font-weight: 400;
+      font-size: 14px;
+      outline: none;
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+      cursor: pointer;
+      &:after {
+        content: "";
+        border-color: #4d4d4d transparent transparent;
+        border-style: solid;
+        border-width: 5px 5px 2.5px;
+        display: inline-block;
+        height: 0;
+        width: 0;
+        position: relative;
+      }
+    }
+    &__brand,
+    &__model,
+    &__version,
+    &__lightning {
+      width: 48%;
+      position: relative;
+      .mui-select {
+        outline: none;
+      }
+      .mui-select__menu{
+        width: 100%;
+        background-color: #FFF;
+        border: 1px solid #CCC;
+        position: absolute;
+        z-index: 2;
+        top: 38px !important;
+        left: 0;
+        div {
+          width: 100%;
+          height: 20px;
+          font-size: 13px;
+          color: #4d4d4d;
+          padding: 3.75px 7px 3.75px 15px;
+          cursor: pointer;
+          text-transform: uppercase;
+          &:hover {
+            background-color: #cc2929;
+            color: #FFF;
+          }
+        }
+      }
+      label {
+        height: 39px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 8px;
+        color: #aaaab1;
+        font-size: 14px;
+        &:before {
+          display: none;
+        }
+      }
+      select {
+        margin: 0;
+        vertical-align: middle;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding-right: 1em;
+        padding-left: 56px;
+        width: 100%;
+        height: 39px;
+        box-sizing: border-box;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #ccc;
+        border-radius: 3px;
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWd odD0iMTAwIj48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMCAzM2gxMDBMNTAgODV6Ii8+PC9zdmc+");
+        background-size: 10px;
+        background-repeat: no-repeat;
+        background-position: calc(100% - 1em) center;
+        padding-right: calc((1em * 2) + 10px);
+        cursor: pointer;
+        font-weight: 700;
+        color: #4d4d4d;
+        font-size: 14px;
+        &:disabled {
+          cursor: default;
+          border-color: #dedee3;
+          color: #aaaab1;
+          label {
+            color: #aaaab1;
+          }
+        }
+      }
+    }
+    &__model, {
+      select {
+        padding-left: 63px;
+      }
+    }
+    &__version {
+      width: 100%;
+      margin-top: 15px;
+      select {
+        padding-left: 60px;
+      }
+    }
+    &__lightning {
+      width: 30%;
+      select {
+        padding-left: 45px;
+        border-left: 0;
+        border-radius: 0 3px 3px 0;
+      }
+    }
+  }
+  &-checkbox {
+    display: inline-block;
+    margin-right: 44px;
+    input {
+      display: none;
+      &:checked {
+        ~ label {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    label {
+      color: #696976;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      &:before {
+        content: "";
+        width: 17px;
+        height: 17px;
+        display: flex;
+        margin-right: 10px;
+        border: 1px solid #b5b5bf;
+        border-radius: 3px;
+      }
+      &:after {
+        content: "";
+        width: 9px;
+        height: 5px;
+        position: absolute;
+        top: 5px;
+        left: 4px;
+        border: 2px solid #cc2929;
+        border-top: 0px;
+        border-right: 0px;
+        transform: rotate(-39deg);
+        opacity: 0;
+      }
+    }
+  }
+  &-footer {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      font-size: 15px;
+      font-weight: 700;
+      color: #cc2929;
+      display: flex;
+      align-items: center;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:before {
+        content: "";
+        width: 3px;
+        height: 3px;
+        display: inline-block;
+        margin-right: 5px;
+        border: 2px solid #cc2929;
+        border-left: 0px;
+        border-top: 0px;
+        transform: rotate(-45deg);
+      }
+    }
+    &__buttons {
+      display: flex;
+      align-items: center;
+      &--clear {
+        width: 94px;
+        height: 22px;
+        margin-right: 27px;
+        color: #8b8b97;
+        font-size: 15px;
+        border: 0;
+        background-color: #FFF;
+        cursor: pointer;
+      }
+      &--send {
+        width: 319px;
+        height: 51px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        border: 0px;
+        background-color: #cc2929;
+        text-transform: uppercase;
+        color: #FFF;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover {
+          background-color: #f54747;
+        }
+      }
+    }
+  }
+}

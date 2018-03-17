@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: 'Arial',sans-serif;
+	background-color: #f4f4f4;
+  font-size: 100%;
+}
+.content {
+  max-width: 933px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+.row {
+  width: 100%;
+  display: inline-block;
+  &-form {
+    display: flex;
+    justify-content: space-between;
+    &-right {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

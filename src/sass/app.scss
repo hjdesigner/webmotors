@@ -1,4 +1,3 @@
-
-h1 {
-  color: red;
-}
+@import '~sass/config/layout';
+@import '~sass/components/header';
+@import '~sass/components/search';

@@ -1,6 +1,2 @@
+@import '~react-select/dist/react-select.css';
 @import '~sass/app.scss';
-
-body {
-  font: 30px sans-serif;
-  color: #000;
-}
