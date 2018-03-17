@@ -56,10 +56,12 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "node-sass": "^4.7.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.7"
   }
 }

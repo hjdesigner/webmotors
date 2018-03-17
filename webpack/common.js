@@ -56,9 +56,9 @@ module.exports = {
   },
 
   cssLoader: {
-    test: /\.css$/,
+    test: /\.(css|scss)$/,
     include: paths.src,
-    use: ['style-loader', 'css-loader']
+    use: ['style-loader', 'css-loader', 'sass-loader']
   },
 
   fileLoader: {
@@ -88,7 +88,8 @@ module.exports = {
     alias: {
       src: paths.src,
       components: join(paths.src, 'components'),
-      utils: join(paths.src, 'utils')
+      utils: join(paths.src, 'utils'),
+      sass: join(paths.src, 'sass')
     }
   }
 }
