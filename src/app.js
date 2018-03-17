@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
+import Header from './components/header'
 import NavSearch from './components/nav-search'
 import Option from 'muicss/lib/react/option'
 import Select from 'muicss/lib/react/select'
@@ -37,9 +38,7 @@ class App extends Component {
     return (
       <div className='content'>
         <header>
-          <div className='logo'>
-            <a href='/'><img src='https://cdn.webmotors.com.br/webmotors/Content/assets/img/logo-webmotors@2x.png?v=21103' alt='Webmotors' /></a>
-          </div>
+          <Header />
         </header>
         <section className='search'>
           <NavSearch
