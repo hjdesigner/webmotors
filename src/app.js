@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
+import NavSearch from './components/nav-search'
 import Option from 'muicss/lib/react/option'
 import Select from 'muicss/lib/react/select'
 import './css/style.css'
@@ -41,15 +42,12 @@ class App extends Component {
           </div>
         </header>
         <section className='search'>
-          <div className='search-header'>
-            <div className='search-header__type'>
-              <a href='#' className={`search-header__type--car ${this.state.addClassCar}`} data-id='carro' onClick={this.handleClick}>Comprar <span>Carros</span></a>
-              <a href='#' className={`search-header__type--bike ${this.state.addClassBike}`} data-id='moto' onClick={this.handleClick}>Comprar <span>Motos</span></a>
-            </div>
-            <div className='search-header__sell'>
-              <a href='#'>Vender {this.state.type}</a>
-            </div>
-          </div>
+          <NavSearch
+            addClassCar={this.state.addClassCar}
+            addClassBike={this.state.addClassBike}
+            type={this.state.type}
+            handleClick={this.handleClick}
+          />
           <form>
             <div className='search-form'>
               <div className='row'>
