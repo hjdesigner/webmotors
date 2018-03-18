@@ -6,12 +6,10 @@ import Header from './components/header'
 import NavSearch from './components/search/nav-search'
 import Type from './components/search/type'
 import Where from './components/search/where'
-import SelectYear from './components/search/select-year'
-import SelectPrice from './components/search/select-price'
+import SelectFake from './components/search/select-fake'
 import SelectDefault from './components/search/select'
 import LinkSearch from './components/search/link-search'
-import ButtonClean from './components/search/button-clean'
-import ButtonOffers from './components/search/button-offers'
+import ButtonDefault from './components/search/button'
 import './css/style.css'
 
 class App extends Component {
@@ -135,8 +133,8 @@ class App extends Component {
                 <div className='search-form__left'>
                   <Where value={this.state.valueWhere} handleWhere={this.handleWhere} />
                   <div className='search-form__yearPrice'>
-                    <SelectYear />
-                    <SelectPrice />
+                    <SelectFake divClass={'year'} title={'Ano Desejado'} />
+                    <SelectFake divClass={'price'} title={'Faixa de Preço'} />
                   </div>
                 </div>
                 <div className='search-form__right'>
@@ -147,7 +145,7 @@ class App extends Component {
                       title={'Marca:'}
                       state={this.state.make}
                       value={this.state.valueBrand}
-                      handleBrand={this.handleBrand}
+                      handle={this.handleBrand}
                     />
                     <SelectDefault
                       divClass={'model'}
@@ -155,7 +153,7 @@ class App extends Component {
                       title={'Modelo:'}
                       state={this.state.model}
                       value={this.state.valueModel}
-                      handleBrand={this.handleModel}
+                      handle={this.handleModel}
                     />
                   </div>
                   <div className='row-form-right'>
@@ -165,7 +163,7 @@ class App extends Component {
                       title={'Versão:'}
                       state={this.state.version}
                       value={this.state.valueVersion}
-                      handleBrand={this.handleVersion}
+                      handle={this.handleVersion}
                     />
                   </div>
                 </div>
@@ -174,8 +172,8 @@ class App extends Component {
             <div className='search-footer'>
               <LinkSearch />
               <div className='search-footer__buttons'>
-                <ButtonClean handleClean={this.handleClean} />
-                <ButtonOffers />
+                <ButtonDefault divClass={'clean'} title={'Limpar filtros'} handle={this.handleClean} />
+                <ButtonDefault divClass={'send'} title={'Ver Ofertas'} />
               </div>
             </div>
           </form>
