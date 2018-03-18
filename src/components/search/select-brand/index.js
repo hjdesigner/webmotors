@@ -1,6 +1,5 @@
 import React from 'react'
-import Option from 'muicss/lib/react/option'
-import Select from 'muicss/lib/react/select'
+import { Option, Select } from 'muicss/react'
 
 const SelectBrand = ({ state, value, handleBrand }) => (
   <div className='search-form__brand'>
