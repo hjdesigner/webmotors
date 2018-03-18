@@ -7,9 +7,10 @@
     justify-content: space-between;
     align-items: flex-start;
     &__type{
+      width: 100%;
       display: flex;
       a {
-        max-width: 188px;
+        width: 50%;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -20,6 +21,7 @@
         font-weight: 400;
         text-decoration: none;
         text-transform: uppercase;
+        text-align: center;
         span {
           font-size: 21px;
         }
@@ -31,36 +33,32 @@
         }
       }
       &--car {
-        padding: 0 44px 16px 75px;
+        padding: 0 0 5px 0px;
         &:before {
           content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/car_icon_gray.svg?v=904');
           width: 40px;
           height: 17px;
-          position: absolute;
-          bottom: 14px;
-          left: 20px;
+          display: inline-block;
+          margin-left: calc(50% - 20px);
         }
         &.active {
           &:before {
             content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/car_icon_red.svg?v=904');
-            bottom: 12px;
           }
         }
       }
       &--bike {
-        padding: 0px 23px 16px 62px;
+        padding: 0px 0 5px 0px;
         &:before {
           content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/bike_icon_gray.svg?v=904');
           width: 27px;
           height: 22px;
-          position: absolute;
-          bottom: 13px;
-          left: 20px;
+          display: inline-block;
+          margin-left: calc(50% - 13px);
         }
         &.active {
           &:before {
             content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/bike_icon_red.svg?v=904');
-            bottom: 11px;
           }
         }
       }
@@ -69,6 +67,7 @@
       width: 200px;
       height: 40px;
       display: flex;
+      display: none;
       a {
         width: 100%;
         display: flex;
@@ -92,7 +91,7 @@
   form {
     width: 100%;
     display: inline-block;
-    padding: 31.5px 56px;
+    padding: 20.5px 6px;
     background-color: #FFF;
     box-shadow: rgba(174, 174, 181, 0.2) 1px 1px 1px;
   }
@@ -101,15 +100,15 @@
     display: inline-block;
     &__left,
     &__right{
-      width: 49%;
-      margin-top: 15px;
+      width: 100%;
+      margin-top: 12px;
     }
     &__where {
       width: 100%;
       display: flex;
       position: relative;
       input {
-        width: 70%;
+        width: 67%;
         height: 39px;
         display: inline-block;
         padding: 0 0 0 80px;
@@ -141,7 +140,7 @@
         }
       }
       .select-lightning {
-        width: 30%;
+        width: 33%;
         display: inline-block;
         position: relative;
         p {
@@ -161,39 +160,7 @@
     			margin-left: 41px;
           padding: 0;
         }
-        .Select-control {
-          height: 39px;
-          border-radius: 0 3px 3px 0;
-          border-left: 0;
-          border-color: #CCC;
-        }
-        .Select-placeholder,
-        .Select-input,
-        .Select-value{
-          padding-left: 0px;
-          padding-right: 0px;
-        }
-        .Select-placeholder {
-          padding-left: 43px;
-          font-size: 14px;
-          font-weight: 700;
-          padding-top: 2px;
-        }
-        #react-select-2--value-item {
-          padding: 0 0 0 42px;
-          font-size: 14px;
-          font-weight: 700;
-          position: relative;
-          top: 2px;
-        }
-        .Select-clear {
-          position: relative;
-          top: 1px;
-          right: 3px;
-        }
-        .Select-arrow {
-          border-color: #4d4d4d transparent transparent;
-        }
+
       }
     }
     &__yearPrice {
@@ -324,23 +291,26 @@
       }
     }
     &__lightning {
-      width: 30%;
+      width: 33%;
       select {
         padding-left: 45px;
         border-left: 0;
         border-radius: 0 3px 3px 0;
+        padding-right: 0px;
       }
     }
   }
   &-checkbox {
     display: inline-block;
-    margin-right: 44px;
+    margin-right: 0px;
+    width: 50%;
     input {
       display: none;
       &:checked {
         ~ label {
           &:after {
             opacity: 1;
+            animation: animationCheck .25s linear;
           }
         }
       }
@@ -379,9 +349,10 @@
   &-footer {
     width: 100%;
     display: flex;
-    margin-top: 15px;
+    margin-top: 20px;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
     a {
       font-size: 15px;
       font-weight: 700;
@@ -404,12 +375,16 @@
       }
     }
     &__buttons {
+      width: 100%;
       display: flex;
       align-items: center;
+      margin-top: 20px;
+      flex-direction: column;
       &--clean {
-        width: 94px;
+        width: 100%;
         height: 22px;
-        margin-right: 27px;
+        margin-right: 0px;
+        margin-top: 20px;
         color: #8b8b97;
         font-size: 15px;
         border: 0;
@@ -417,6 +392,7 @@
         cursor: pointer;
         outline: none;
         transition: all .25s ease-out;
+        order: 2;
         &:focus {
           border: 1px solid #FFF;
         }
@@ -426,11 +402,12 @@
         }
       }
       &--send {
-        width: 319px;
+        width: 100%;
         height: 51px;
         display: flex;
         align-items: center;
         justify-content: center;
+        order: 1;
         border-radius: 3px;
         border: 0px;
         background-color: #cc2929;
@@ -440,11 +417,92 @@
         font-weight: 700;
         cursor: pointer;
         outline: none;
+        transition: all .25s ease-in-out;
         &:hover {
           background-color: #f54747;
         }
         &:focus {
           border: 1px solid #f54747;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 932px) {
+  .search{
+    &-header{
+      &__type{
+        width: auto;
+        a {
+          text-align: center;
+          width: inital;
+          max-width: 188px;
+          flex-direction: row;
+        }
+        &--car {
+          padding: 0 44px 14px 75px;
+          &:before {
+            position: absolute;
+            bottom: 16px;
+            left: 19px;
+            margin-left: initial;
+            display: inital;
+          }
+          &.active {
+            &:before {
+              bottom: 14px;
+            }
+          }
+        }
+        &--bike {
+        	padding: 0px 23px 14px 62px;
+        	&:before {
+          	position: absolute;
+          	bottom: 13px;
+          	left: 19px;
+						margin-left: initial;
+            display: inital;
+        	}
+        	&.active {
+          	&:before {
+            	bottom: 12px;
+          	}
+        	}
+      	}
+      }
+      &__sell {
+        display: flex;
+      }
+    }
+		&-checkbox {
+			width: auto;
+			margin-right: 44px;
+		}
+		form {
+		  padding: 30.5px 56px;
+    }
+    &-form {
+      &__left,
+      &__right {
+        width: 49%;
+      }
+    }
+    &-footer {
+      flex-direction: row;
+      &__buttons {
+        width: auto;
+        margin-top: 0;
+        flex-direction: row;
+        &--clean {
+          width: 94px;
+          order: 1;
+          margin-top: 0;
+          margin-right: 27px;
+        }
+        &--send {
+          width: 319px;
+          order: 2;
         }
       }
     }

@@ -21,7 +21,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'My app',
+    title: 'Carros Usados, Novos, Semi Novos e Motos - Compra e Venda - Webmotors',
     template: join(paths.src, 'html', 'template.html')
   },
 

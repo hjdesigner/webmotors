@@ -13,7 +13,7 @@ body {
 }
 .content {
   max-width: 933px;
-  padding: 0 10px;
+  padding: 0 0px;
   margin: 0 auto;
 }
 img {
@@ -27,9 +27,21 @@ img {
   &-form {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     &-right {
       display: flex;
       justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (min-width: 932px) {
+  .content {
+    padding: 0 10px;
+  }
+  .row {
+    &-form {
+      flex-direction: row;
     }
   }
 }

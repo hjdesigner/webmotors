@@ -3,19 +3,24 @@
 
 import React, { Component } from 'react'
 import Header from './components/header'
-import NavSearch from './components/nav-search'
-import Type from './components/type'
-import SelectBrand from './components/select-brand'
-import SelectModel from './components/select-model'
-import SelectVersion from './components/select-version'
-import Option from 'muicss/lib/react/option'
-import Select from 'muicss/lib/react/select'
+import NavSearch from './components/search/nav-search'
+import Type from './components/search/type'
+import Where from './components/search/where'
+import SelectYear from './components/search/select-year'
+import SelectPrice from './components/search/select-price'
+import SelectBrand from './components/search/select-brand'
+import SelectModel from './components/search/select-model'
+import SelectVersion from './components/search/select-version'
+import LinkSearch from './components/search/link-search'
+import ButtonClean from './components/search/button-clean'
+import ButtonOffers from './components/search/button-offers'
 import './css/style.css'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
+      valueWhere: 'Brasil',
       addClassCar: 'active',
       addClassBike: '',
       type: 'meu carro',
@@ -45,8 +50,9 @@ class App extends Component {
     }
     this.handleBrand = (e) => {
       const value = e.target.value
+      const selectModel = document.querySelector('.search-form__model select')
       if (value > 0) {
-        document.querySelector('.search-form__model select').removeAttribute('disabled')
+        selectModel.removeAttribute('disabled')
         this.setState({
           valueBrand: value
         })
@@ -56,13 +62,14 @@ class App extends Component {
           this.setState({model: data})
         })
       } else {
-        document.querySelector('.search-form__model select').setAttribute('disabled', 'true')
+        selectModel.setAttribute('disabled', 'true')
       }
     }
     this.handleModel = (e) => {
       const value = e.target.value
+      const selectVersion = document.querySelector('.search-form__version select')
       if (value > 0) {
-        document.querySelector('.search-form__version select').removeAttribute('disabled')
+        selectVersion.removeAttribute('disabled')
         this.setState({
           valueModel: value
         })
@@ -72,7 +79,7 @@ class App extends Component {
           this.setState({version: data})
         })
       } else {
-        document.querySelector('.search-form__version select').setAttribute('disabled', 'true')
+        selectVersion.setAttribute('disabled', 'true')
       }
     }
     this.handleVersion = (e) => {
@@ -85,13 +92,20 @@ class App extends Component {
     }
     this.handleClean = (e) => {
       e.preventDefault()
+      const selectModel = document.querySelector('.search-form__model select')
+      const selectVersion = document.querySelector('.search-form__version select')
       this.setState({
         valueModel: 'option1',
         valueVersion: 'option1',
         valueBrand: 'option1'
       })
-      document.querySelector('.search-form__model select').setAttribute('disabled', 'true')
-      document.querySelector('.search-form__version select').setAttribute('disabled', 'true')
+      selectModel.setAttribute('disabled', 'true')
+      selectVersion.setAttribute('disabled', 'true')
+    }
+    this.handleWhere = (e) => {
+      this.setState({
+        valueWhere: e.target.value
+      })
     }
   }
 
@@ -123,26 +137,10 @@ class App extends Component {
               </div>
               <div className='row row-form'>
                 <div className='search-form__left'>
-                  <div className='search-form__where'>
-                    <label>Onde:</label>
-                    <input value='Brasil' />
-                    <div className='search-form__lightning'>
-                      <Select name='input' label='Raio:' defaultValue='option1'>
-                        <Option value='1' label='Raio' />
-                        <Option value='2' label='25' />
-                        <Option value='3' label='50' />
-                        <Option value='4' label='100' />
-                        <Option value='5' label='150' />
-                      </Select>
-                    </div>
-                  </div>
+                  <Where value={this.state.valueWhere} handleWhere={this.handleWhere} />
                   <div className='search-form__yearPrice'>
-                    <div className='search-form__year'>
-                      Ano Desejado
-                    </div>
-                    <div className='search-form__price'>
-                      Faixa de Preço
-                    </div>
+                    <SelectYear />
+                    <SelectPrice />
                   </div>
                 </div>
                 <div className='search-form__right'>
@@ -157,10 +155,10 @@ class App extends Component {
               </div>
             </div>
             <div className='search-footer'>
-              <a href='#'>Busca Avançada</a>
+              <LinkSearch />
               <div className='search-footer__buttons'>
-                <button className='search-footer__buttons--clean' onClick={this.handleClean}>Limpar filtros</button>
-                <button className='search-footer__buttons--send'>Ver Ofertas</button>
+                <ButtonClean handleClean={this.handleClean} />
+                <ButtonOffers />
               </div>
             </div>
           </form>

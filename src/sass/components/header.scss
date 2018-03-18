@@ -1,8 +1,20 @@
 header {
 	width: 100%;
 	display: inline-block;
-  padding: 52px 0;
+  padding: 16px 0 20px;
+  text-align: center;
   .logo {
-    max-width: 216px;
+    max-width: 127px;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 932px) {
+  header {
+    text-align: left;
+    padding: 52px 0;
+    .logo {
+      max-width: 216px;
+    }
   }
 }

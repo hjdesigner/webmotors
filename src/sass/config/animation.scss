@@ -1,0 +1,14 @@
+@keyframes animationCheck {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 0;
+    height: 5px;
+  }
+  100% {
+    width: 9px;
+    height: 5px;
+  }
+}
