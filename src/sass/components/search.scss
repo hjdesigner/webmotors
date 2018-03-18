@@ -406,7 +406,7 @@
     &__buttons {
       display: flex;
       align-items: center;
-      &--clear {
+      &--clean {
         width: 94px;
         height: 22px;
         margin-right: 27px;
@@ -415,6 +415,15 @@
         border: 0;
         background-color: #FFF;
         cursor: pointer;
+        outline: none;
+        transition: all .25s ease-out;
+        &:focus {
+          border: 1px solid #FFF;
+        }
+        &:hover {
+          transition: all .25s ease-in;
+          text-decoration: underline;
+        }
       }
       &--send {
         width: 319px;
@@ -430,8 +439,12 @@
         font-size: 18px;
         font-weight: 700;
         cursor: pointer;
+        outline: none;
         &:hover {
           background-color: #f54747;
+        }
+        &:focus {
+          border: 1px solid #f54747;
         }
       }
     }

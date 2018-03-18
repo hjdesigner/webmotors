@@ -4,8 +4,10 @@
 import React, { Component } from 'react'
 import Header from './components/header'
 import NavSearch from './components/nav-search'
+import Type from './components/type'
 import SelectBrand from './components/select-brand'
 import SelectModel from './components/select-model'
+import SelectVersion from './components/select-version'
 import Option from 'muicss/lib/react/option'
 import Select from 'muicss/lib/react/select'
 import './css/style.css'
@@ -21,7 +23,8 @@ class App extends Component {
       valueBrand: 'option1',
       model: [],
       valueModel: 'option1',
-      version: []
+      version: [],
+      valueVersion: 'option1'
     }
     this.handleClick = (e) => {
       e.preventDefault()
@@ -72,6 +75,24 @@ class App extends Component {
         document.querySelector('.search-form__version select').setAttribute('disabled', 'true')
       }
     }
+    this.handleVersion = (e) => {
+      const value = e.target.value
+      if (value > 0) {
+        this.setState({
+          valueVersion: value
+        })
+      }
+    }
+    this.handleClean = (e) => {
+      e.preventDefault()
+      this.setState({
+        valueModel: 'option1',
+        valueVersion: 'option1',
+        valueBrand: 'option1'
+      })
+      document.querySelector('.search-form__model select').setAttribute('disabled', 'true')
+      document.querySelector('.search-form__version select').setAttribute('disabled', 'true')
+    }
   }
 
   componentDidMount () {
@@ -98,14 +119,7 @@ class App extends Component {
           <form>
             <div className='search-form'>
               <div className='row'>
-                <div className='search-checkbox'>
-                  <input type='checkbox' name='typeAd' id='typeAdNew' checked />
-                  <label htmlFor='typeAdNew'>Novos</label>
-                </div>
-                <div className='search-checkbox'>
-                  <input type='checkbox' name='typeAd' id='typeAdUsed' checked />
-                  <label htmlFor='typeAdUsed'>Usados</label>
-                </div>
+                <Type />
               </div>
               <div className='row row-form'>
                 <div className='search-form__left'>
@@ -137,14 +151,7 @@ class App extends Component {
                     <SelectModel state={this.state.model} value={this.state.valueModel} handleModel={this.handleModel} />
                   </div>
                   <div className='row-form-right'>
-                    <div className='search-form__version'>
-                      <Select name='input' label='Versão:' defaultValue='option1' disabled>
-                        <Option value='0' label='Todas' />
-                        {this.state.version.map(data =>
-                          <Option key={data.ID} value={data.ID} label={data.Name} />
-                        )}
-                      </Select>
-                    </div>
+                    <SelectVersion state={this.state.version} value={this.state.valueVersion} handleVersion={this.handleVersion} />
                   </div>
                 </div>
               </div>
@@ -152,7 +159,7 @@ class App extends Component {
             <div className='search-footer'>
               <a href='#'>Busca Avançada</a>
               <div className='search-footer__buttons'>
-                <button className='search-footer__buttons--clear'>Limpar filtros</button>
+                <button className='search-footer__buttons--clean' onClick={this.handleClean}>Limpar filtros</button>
                 <button className='search-footer__buttons--send'>Ver Ofertas</button>
               </div>
             </div>
