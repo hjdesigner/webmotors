@@ -20,3 +20,8 @@ Responsive project that displays search reports to find a vehicle. The data is f
 * Run yarn server:json to upload the API server
 * Run yarn dev (or npm start) to develop on http://localhost:3000
 * Run yarn build for production build (files will be generated on dist directory)
+
+
+##### Note
+
+I used json-server to create the local api because the last api was not configured to access outside the webmotors domino
