@@ -6,9 +6,13 @@ header {
   .logo {
     max-width: 127px;
     display: inline-block;
+    img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
   }
 }
-
 @media screen and (min-width: 932px) {
   header {
     text-align: left;

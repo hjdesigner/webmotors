@@ -120,9 +120,7 @@ class App extends Component {
   render () {
     return (
       <div className='content'>
-        <header>
           <Header />
-        </header>
         <section className='search'>
           <NavSearch
             addClassCar={this.state.addClassCar}
