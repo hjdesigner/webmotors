@@ -238,6 +238,9 @@
       .mui-select {
         outline: none;
       }
+      option {
+        display: none;
+      }
       .mui-select__menu{
         width: 100%;
         background-color: #FFF;

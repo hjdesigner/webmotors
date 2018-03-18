@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import Header from './components/header'
 import NavSearch from './components/nav-search'
 import SelectBrand from './components/select-brand'
+import SelectModel from './components/select-model'
 import Option from 'muicss/lib/react/option'
 import Select from 'muicss/lib/react/select'
 import './css/style.css'
@@ -16,7 +17,11 @@ class App extends Component {
       addClassCar: 'active',
       addClassBike: '',
       type: 'meu carro',
-      make: []
+      make: [],
+      valueBrand: 'option1',
+      model: [],
+      valueModel: 'option1',
+      version: []
     }
     this.handleClick = (e) => {
       e.preventDefault()
@@ -33,6 +38,38 @@ class App extends Component {
           addClassBike: 'active',
           type: 'minha moto'
         })
+      }
+    }
+    this.handleBrand = (e) => {
+      const value = e.target.value
+      if (value > 0) {
+        document.querySelector('.search-form__model select').removeAttribute('disabled')
+        this.setState({
+          valueBrand: value
+        })
+        fetch(`http://localhost:3004/model?MakeID=${value}`)
+        .then(response => response.json())
+        .then((data) => {
+          this.setState({model: data})
+        })
+      } else {
+        document.querySelector('.search-form__model select').setAttribute('disabled', 'true')
+      }
+    }
+    this.handleModel = (e) => {
+      const value = e.target.value
+      if (value > 0) {
+        document.querySelector('.search-form__version select').removeAttribute('disabled')
+        this.setState({
+          valueModel: value
+        })
+        fetch(`http://localhost:3004/version?ModelID=${value}`)
+        .then(response => response.json())
+        .then((data) => {
+          this.setState({version: data})
+        })
+      } else {
+        document.querySelector('.search-form__version select').setAttribute('disabled', 'true')
       }
     }
   }
@@ -62,11 +99,11 @@ class App extends Component {
             <div className='search-form'>
               <div className='row'>
                 <div className='search-checkbox'>
-                  <input type='checkbox' name='typeAd' id='typeAdNew' />
+                  <input type='checkbox' name='typeAd' id='typeAdNew' checked />
                   <label htmlFor='typeAdNew'>Novos</label>
                 </div>
                 <div className='search-checkbox'>
-                  <input type='checkbox' name='typeAd' id='typeAdUsed' />
+                  <input type='checkbox' name='typeAd' id='typeAdUsed' checked />
                   <label htmlFor='typeAdUsed'>Usados</label>
                 </div>
               </div>
@@ -96,23 +133,16 @@ class App extends Component {
                 </div>
                 <div className='search-form__right'>
                   <div className='row-form-right'>
-                    <SelectBrand state={this.state.make} />
-                    <div className='search-form__model'>
-                      <Select name='input' label='Modelo:' defaultValue='option1' disabled>
-                        <Option value='1' label='Todas' />
-                        <Option value='2' label='320' />
-                        <Option value='3' label='A20' />
-                        <Option value='4' label='Covertte' />
-                      </Select>
-                    </div>
+                    <SelectBrand state={this.state.make} value={this.state.valueBrand} handleBrand={this.handleBrand} />
+                    <SelectModel state={this.state.model} value={this.state.valueModel} handleModel={this.handleModel} />
                   </div>
                   <div className='row-form-right'>
                     <div className='search-form__version'>
                       <Select name='input' label='Versão:' defaultValue='option1' disabled>
-                        <Option value='1' label='Todas' />
-                        <Option value='2' label='320' />
-                        <Option value='3' label='A20' />
-                        <Option value='4' label='Covertte' />
+                        <Option value='0' label='Todas' />
+                        {this.state.version.map(data =>
+                          <Option key={data.ID} value={data.ID} label={data.Name} />
+                        )}
                       </Select>
                     </div>
                   </div>
