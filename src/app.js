@@ -8,9 +8,7 @@ import Type from './components/search/type'
 import Where from './components/search/where'
 import SelectYear from './components/search/select-year'
 import SelectPrice from './components/search/select-price'
-import SelectBrand from './components/search/select-brand'
-import SelectModel from './components/search/select-model'
-import SelectVersion from './components/search/select-version'
+import SelectDefault from './components/search/select'
 import LinkSearch from './components/search/link-search'
 import ButtonClean from './components/search/button-clean'
 import ButtonOffers from './components/search/button-offers'
@@ -143,11 +141,32 @@ class App extends Component {
                 </div>
                 <div className='search-form__right'>
                   <div className='row-form-right'>
-                    <SelectBrand state={this.state.make} value={this.state.valueBrand} handleBrand={this.handleBrand} />
-                    <SelectModel state={this.state.model} value={this.state.valueModel} handleModel={this.handleModel} />
+                    <SelectDefault
+                      divClass={'brand'}
+                      status={''}
+                      title={'Marca:'}
+                      state={this.state.make}
+                      value={this.state.valueBrand}
+                      handleBrand={this.handleBrand}
+                    />
+                    <SelectDefault
+                      divClass={'model'}
+                      status={'disabled'}
+                      title={'Modelo:'}
+                      state={this.state.model}
+                      value={this.state.valueModel}
+                      handleBrand={this.handleModel}
+                    />
                   </div>
                   <div className='row-form-right'>
-                    <SelectVersion state={this.state.version} value={this.state.valueVersion} handleVersion={this.handleVersion} />
+                    <SelectDefault
+                      divClass={'version'}
+                      status={'disabled'}
+                      title={'Versão:'}
+                      state={this.state.version}
+                      value={this.state.valueVersion}
+                      handleBrand={this.handleVersion}
+                    />
                   </div>
                 </div>
               </div>
