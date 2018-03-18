@@ -1,8 +1,10 @@
 'use strict'
+/* global fetch */
 
 import React, { Component } from 'react'
 import Header from './components/header'
 import NavSearch from './components/nav-search'
+import SelectBrand from './components/select-brand'
 import Option from 'muicss/lib/react/option'
 import Select from 'muicss/lib/react/select'
 import './css/style.css'
@@ -13,7 +15,8 @@ class App extends Component {
     this.state = {
       addClassCar: 'active',
       addClassBike: '',
-      type: 'meu carro'
+      type: 'meu carro',
+      make: []
     }
     this.handleClick = (e) => {
       e.preventDefault()
@@ -32,6 +35,14 @@ class App extends Component {
         })
       }
     }
+  }
+
+  componentDidMount () {
+    fetch('http://localhost:3004/make')
+    .then(response => response.json())
+    .then((data) => {
+      this.setState({make: data})
+    })
   }
 
   render () {
@@ -85,14 +96,7 @@ class App extends Component {
                 </div>
                 <div className='search-form__right'>
                   <div className='row-form-right'>
-                    <div className='search-form__brand'>
-                      <Select name='input' label='Marca:' defaultValue='option1'>
-                        <Option value='1' label='Todas' />
-                        <Option value='2' label='Chevrolet' />
-                        <Option value='3' label='Fiat' />
-                        <Option value='4' label='Ford' />
-                      </Select>
-                    </div>
+                    <SelectBrand state={this.state.make} />
                     <div className='search-form__model'>
                       <Select name='input' label='Modelo:' defaultValue='option1' disabled>
                         <Option value='1' label='Todas' />

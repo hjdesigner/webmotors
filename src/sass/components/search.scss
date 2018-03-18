@@ -27,37 +27,40 @@
           span {
             color: #cc2929;
           }
+          border-bottom: 3px solid rgb(204, 41, 41);
         }
       }
       &--car {
-        padding: 0 44px 16px 54px;
+        padding: 0 44px 16px 75px;
         &:before {
           content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/car_icon_gray.svg?v=904');
           width: 40px;
           height: 17px;
           position: absolute;
           bottom: 14px;
-          left: 0;
+          left: 20px;
         }
         &.active {
           &:before {
             content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/car_icon_red.svg?v=904');
+            bottom: 12px;
           }
         }
       }
       &--bike {
-        padding: 0px 23px 16px 41px;
+        padding: 0px 23px 16px 62px;
         &:before {
           content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/bike_icon_gray.svg?v=904');
           width: 27px;
           height: 22px;
           position: absolute;
           bottom: 13px;
-          left: 0;
+          left: 20px;
         }
         &.active {
           &:before {
             content: url('https://cdn.webmotors.com.br/webmotors/Content/assets/img/bike_icon_red.svg?v=904');
+            bottom: 11px;
           }
         }
       }
